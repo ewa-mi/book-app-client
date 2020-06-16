@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BOOK APP
 
-## Available Scripts
+is dedicated to book lovers, who want to have some overview of the books they already read, for those, who want to tidy their books collections, keep track on them, rate their books and create the reviews for their own awareness which book was good/bad and also to share their opinions with other book lovers.
 
-In the project directory, you can run:
+- Wireframe: https://github.com/ewa-mi/book-app-client/blob/master/wireframe-book-app.pdf
+- Data types: https://github.com/ewa-mi/book-app-client/blob/master/bookapp-data%20types.jpg
+- Data model: https://github.com/ewa-mi/book-app-client/blob/master/bookapp-data%20model.jpg
+- Kanban task board & user stories https://github.com/users/ewa-mi/projects/1
 
-### `npm start`
+## USER STORIES
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Primary
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+As a user, I want to...
 
-### `npm test`
+- See last or most liked reviews on the Homepage (+ sorting option) to know which books are worth to read
+- Sign up, Log in & Log out to be able to create my books collections, rate books and write reviews
+- Create book collection/-s and add a book/-s to my collection (by providing ISBN) to an overview of the books I already read
+- Sort books within collection (by author, title, stars, etc.) to make my collections tidy and find a book fast and easy
+- Create a review of my books (1 review per book) to express my opinion and share it with other users
+- See other users collections with all the extras (stars, reviews, etc.) to know other users opinions and interests\*
+  \*this feature is available when clicking in reviews details, on the homepage - you go to the book page and there, you can click on the user and go to their collections page
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Additional
 
-### `npm run build`
+As a user, I want to...
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- See book recommendations and news on the Homepage to learn about something interesting
+- Star my books to remember if that book was good and to let other users know how I rate that book
+- Remove my collection if I decide it’s not valuable anymore
+- Remove book from collection if I decide it’s not valuable anymore
+- Like other users reviews to express my positive opinion on their review
+- Remove my review in case I change my opinion about some book
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Secondary
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As a user, I want to...
 
-### `npm run eject`
+- Edit my review if I change my opinion about some book
+- Change my rating
+- Unlike someone's review
+- Make my collection private (invisible for other users) because I’m shy and don’t want other users to see my stuff
+- Remove book from my collection (with all the extras: stars, review, comments, likes in case I just change my mind
+- Comment other users reviews (and remove my comments) to express my opinion about their reviews
+- Block commenting option of my reviews to prevent other users to criticise me
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Future features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+(the app can be improved in the future)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As a user, I want to…
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Look for a specific book and see collections, which contain that book
+- Search for specific collections of specific users
+- Post announcement that I have some book to give away
+- Describe that book and add my location
+- See other users give aways, filter them by searching and see location on a map
+- PM user who give aways book I’m interested in
+- Chat with that user to arrange book pick up
