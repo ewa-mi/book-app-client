@@ -1,0 +1,7 @@
+.nav-item {
+  padding-left: 40px;
+}
+
+.nav-item .active.active.active.active {
+  color: red;
+}
