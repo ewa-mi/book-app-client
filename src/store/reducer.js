@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-// import someFeatureReducer from "./someFeature/reducer";
+import homepageReducer from "./homepage/reducer";
 
-const reducer = combineReducers({
-  // someFeature: someFeatureReducer, etc.
+export default combineReducers({
+  homepage: homepageReducer,
 });
-
-export default reducer;
