@@ -13,7 +13,7 @@ is dedicated to book lovers, who want to have some overview of the books they al
 
 As a user, I want to...
 
-- See last or most liked reviews on the Homepage (+ sorting option) to know which books are worth to read
+- See recent reviews on the Homepage to know which books are worth to read
 - Sign up, Log in & Log out to be able to create my books collections, rate books and write reviews
 - Create book collection/-s and add a book/-s to my collection (by providing ISBN) to an overview of the books I already read
 - Sort books within collection (by author, title, stars, etc.) to make my collections tidy and find a book fast and easy
@@ -25,11 +25,17 @@ As a user, I want to...
 
 As a user, I want to...
 
+1.
+
 - See book recommendations and news on the Homepage to learn about something interesting
 - Star my books to remember if that book was good and to let other users know how I rate that book
+- Like other users reviews to express my positive opinion on their review
+- Filter reviews on the Homepage to see specific data
+
+2.
+
 - Remove my collection if I decide it’s not valuable anymore
 - Remove book from collection if I decide it’s not valuable anymore
-- Like other users reviews to express my positive opinion on their review
 - Remove my review in case I change my opinion about some book
 
 ## Secondary
