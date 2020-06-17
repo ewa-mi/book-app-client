@@ -28,20 +28,44 @@ export default function HomePage() {
                 return;
               }
 
+              const truncateReviewText =
+                item.review.content.substr(0, 200) + "...";
+
               return (
                 <div className="oneBoard" key={item.id}>
-                  <h4>
-                    {item.book.author}, <span></span>
-                    {item.book.title}
-                  </h4>
-                  <h6>rating: {item.rating}</h6>
-                  <img src={item.book.image} className="image" />
-                  <h5>{item.review.title}</h5>
-                  <p>{item.review.createdAt}</p>
-                  <h5>review by: {item.collection.user.name}</h5>
-                  <p>{item.review.content}</p>
-                  <p>{item.review.likes} likes</p>
-                  <Link to={`/book/${item.id}`}>more </Link>
+                  <h3 className="bookTitle">{`${item.book.author} - ${item.book.title}`}</h3>
+
+                  <div className="reviewBodyWrapper">
+                    <img src={item.book.image} className="reviewImage" />
+                    <div className="reviewRightSide">
+                      <div className="reviewTitleWrapper">
+                        <h4 className="reviewTitle">{item.review.title}</h4>
+                        <p className="reviewAuthor">
+                          by {item.collection.user.name}
+                        </p>
+                      </div>
+                      <p className="reviewDate">
+                        {item.review.createdAt.split("T")[0]}
+                      </p>
+
+                      <p className="reviewText">{truncateReviewText}</p>
+                      <div className="reviewFooter">
+                        <p className="reviewLikes">
+                          {item.review.likes}{" "}
+                          <span
+                            role="img"
+                            aria-label="heart"
+                            className="heartEmoji"
+                          >
+                            ❤️
+                          </span>
+                        </p>
+                        <div className="reviewMore">
+                          <Link to={`/book/${item.id}`}>...more</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
