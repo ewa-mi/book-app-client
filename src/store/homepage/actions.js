@@ -1,14 +1,19 @@
-export function displayReviews(reviews) {
+import axios from "axios";
+import { apiUrl } from "../../config/constants";
+
+export function setReviewBoard(reviewBoard) {
   return {
-    type: "DISPLAY_REVIEWS",
-    payload: reviews,
+    type: "SET_REVIEW_BOARD",
+    payload: reviewBoard,
   };
 }
 
-export const fetchReviews = () => async (dispatch, getState) => {
+export const fetchFullData = () => async (dispatch, getState) => {
   try {
-    const response = await axios.get("http://api-url");
-    dispatch(displayProducts(response.data));
+    const response = await axios.get(`${apiUrl}/bookscollection`);
+
+    dispatch(setReviewBoard(response.data.bookscollections));
+    console.log("response", response.data.bookscollections);
   } catch (error) {
     console.log(error);
   }

@@ -1,13 +1,13 @@
 const initialState = {
-  reviews: [],
+  reviewBoard: [],
 };
 
 export default function homepageReducer(state = initialState, action) {
   let newState = { ...state };
 
   switch (action.type) {
-    case "SET_REVIEWS": {
-      newState.artworks = action.payload;
+    case "SET_REVIEW_BOARD": {
+      newState.reviewBoard = action.payload;
       break;
     }
 

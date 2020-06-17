@@ -1,0 +1,30 @@
+.header {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+/* .middleColumn {
+  text-align: center;
+  margin-top: 20px;
+} */
+
+.image {
+  width: 128px;
+}
+
+.oneBoard {
+  width: 100%;
+  background: white;
+  border: 0.1px solid rgb(235, 233, 233);
+  margin-bottom: 10px;
+  padding: 5px;
+}
