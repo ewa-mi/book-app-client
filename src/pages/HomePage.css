@@ -8,8 +8,8 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 10px;
-  padding: 10px;
+  grid-gap: 20px;
+  padding: 18px;
 }
 
 .oneBoard {
@@ -65,4 +65,10 @@
 
 .reviewFooter {
   align-self: end;
+}
+
+.columnHeader {
+  margin-bottom: 25px;
+  text-align: center;
+  background-color: #f8f9fa;
 }

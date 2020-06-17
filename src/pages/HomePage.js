@@ -18,10 +18,10 @@ export default function HomePage() {
       <h1 className="header">Welcome to Book App</h1>
       <div className="grid">
         <div className="leftColumn">
-          <h6>left column</h6>
+          <h6 className="columnHeader">BOOK RECOMMENDATIONS</h6>
         </div>
         <div className="middleColumn">
-          <h5>middle column</h5>
+          <h6 className="columnHeader">RECENT REVIEWS</h6>
           {reviewBoard.length > 0 &&
             reviewBoard.map((item) => {
               if (!item.review) {
@@ -40,9 +40,12 @@ export default function HomePage() {
                     <div className="reviewRightSide">
                       <div className="reviewTitleWrapper">
                         <h4 className="reviewTitle">{item.review.title}</h4>
-                        <p className="reviewAuthor">
+                        <Link
+                          to={`/book/${item.collection.id}`}
+                          className="reviewAuthor"
+                        >
                           by {item.collection.user.name}
-                        </p>
+                        </Link>
                       </div>
                       <p className="reviewDate">
                         {item.review.createdAt.split("T")[0]}
@@ -57,7 +60,7 @@ export default function HomePage() {
                             aria-label="heart"
                             className="heartEmoji"
                           >
-                            ❤️
+                            🖤
                           </span>
                         </p>
                         <div className="reviewMore">
@@ -71,7 +74,7 @@ export default function HomePage() {
             })}
         </div>
         <div className="rightColumn">
-          <h6>right column</h6>
+          <h6 className="columnHeader">NEWS</h6>
         </div>
       </div>
     </>
