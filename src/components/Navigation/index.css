@@ -5,3 +5,7 @@
 .nav-item .active.active.active.active {
   color: red;
 }
+
+.logo {
+  height: 50px;
+}
