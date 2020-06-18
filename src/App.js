@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
 import CollectionsListPage from "./pages/CollectionsListPage";
 import CollectionPage from "./pages/CollectionPage";
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/collection/:id" component={CollectionPage} />
         <Route path="/book/:id" component={BookPage} />
         <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
       </Switch>
     </div>
   );
