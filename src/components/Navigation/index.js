@@ -2,11 +2,18 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
+import LoggedIn from "./LoggedIn";
+import LoggedOut from "./LoggedOut";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import "./index.css";
 
 export default function Navigation() {
+  const token = useSelector(selectToken);
+
+  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
   return (
     <Navbar bg="light" expand="md">
       <Navbar.Brand as={NavLink} to="/">
@@ -21,7 +28,7 @@ export default function Navigation() {
               path="/collectionslist/:id"
               linkText="Your collections"
             />
-            <NavbarItem path="/login" linkText="Login" />
+            {loginLogoutControls}
           </Nav>
         </Navbar.Collapse>
       </Nav>

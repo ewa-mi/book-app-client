@@ -40,7 +40,7 @@ export default function HomePage() {
                       <div className="reviewTitleWrapper">
                         <h4 className="reviewTitle">{item.review.title}</h4>
                         <Link
-                          to={`/book/${item.collection.id}`}
+                          to={`/collectionslist/${item.collection.id}`}
                           className="reviewAuthor"
                         >
                           by {item.collection.user.name}
