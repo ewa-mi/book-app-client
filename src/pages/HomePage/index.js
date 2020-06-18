@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setReviewBoard, fetchFullData } from "../store/homepage/actions";
-import { selectReviewBoardData } from "../store/homepage/selectors";
-import "./HomePage.css";
+import { setReviewBoard, fetchFullData } from "../../store/homepage/actions";
+import { selectReviewBoardData } from "../../store/homepage/selectors";
+import "./index.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const reviewBoard = useSelector(selectReviewBoardData);
-  console.log("show response", reviewBoard);
 
   useEffect(() => {
     dispatch(fetchFullData());
