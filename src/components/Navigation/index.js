@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
@@ -8,10 +8,13 @@ import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { selectUser } from "../../store/user/selectors";
+
 import "./index.css";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
   return (
@@ -25,7 +28,7 @@ export default function Navigation() {
           <Nav style={{ width: "100%" }} fill>
             <NavbarItem path="/" linkText="Homepage" />
             <NavbarItem
-              path="/collectionslist/:id"
+              path={user?.id ? `/collectionslist/${user.id}` : "/signup"}
               linkText="Your collections"
             />
             {loginLogoutControls}
