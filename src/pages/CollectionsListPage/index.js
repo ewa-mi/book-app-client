@@ -1,13 +1,21 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setReviewBoard, fetchFullData } from "../../store/homepage/actions";
 import { selectReviewBoardData } from "../../store/homepage/selectors";
+import { addNewCollection } from "../../store/collectionsList/actions";
+import { selectToken } from "../../store/user/selectors";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import { Col } from "react-bootstrap";
 import "./index.css";
 
 export default function CollectionsListPage() {
   const dispatch = useDispatch();
   let { id } = useParams();
+  const [collectionName, setCollectionName] = useState("");
+  const token = useSelector(selectToken);
   const reviewBoard = useSelector(selectReviewBoardData);
 
   useEffect(() => {
@@ -30,17 +38,53 @@ export default function CollectionsListPage() {
   if (!reviewBoard.length) {
     return [];
   }
+  console.log("here", uniqueCollections);
+
+  function submitForm(event) {
+    event.preventDefault();
+    dispatch(addNewCollection(collectionName));
+
+    setCollectionName("");
+  }
 
   return (
     <>
       <h1 className="userName">{userName}'s collections</h1>
       <div className="collectionsContainer">
         {uniqueCollections.map((item) => (
-          <div key={item.id} className="collection">
+          <Link
+            to={`/collection/${item.id}`}
+            key={item.id}
+            className="collection"
+          >
             <h3 className="collectionName">{item.name}</h3>
-          </div>
+          </Link>
         ))}
       </div>
+      {token && (
+        <>
+          <Container className="addCollectionForm">
+            <Form as={Col} xs={4} sm={6} md={4} lg={3} xl={2}>
+              <h4 className="mt-5 mb-5">Add new collection</h4>
+              <Form.Group controlId="formBasicName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  value={collectionName}
+                  onChange={(event) => setCollectionName(event.target.value)}
+                  type="text"
+                  placeholder="Name of your collection"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mt-5">
+                <Button variant="primary" type="submit" onClick={submitForm}>
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form>
+          </Container>
+        </>
+      )}
     </>
   );
 }

@@ -24,3 +24,8 @@
 .collectionName {
   color: white;
 }
+
+.addCollectionForm {
+  display: flex;
+  justify-content: center;
+}
