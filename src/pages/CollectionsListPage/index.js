@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { selectUserCollections } from "../../store/collectionsList/selectors";
 import {
-  setBooksCollections,
-  fetchFullData,
-} from "../../store/homepage/actions";
-import { selectBooksCollections } from "../../store/homepage/selectors";
-import { addNewCollection } from "../../store/collectionsList/actions";
+  addNewCollection,
+  fetchUserCollections,
+  setUserCollections,
+} from "../../store/collectionsList/actions";
 import { selectToken } from "../../store/user/selectors";
 import { selectUser } from "../../store/user/selectors";
 
@@ -21,32 +21,29 @@ export default function CollectionsListPage() {
   let { id } = useParams();
   const [collectionName, setCollectionName] = useState("");
   const token = useSelector(selectToken);
-  const booksCollections = useSelector(selectBooksCollections);
+  const userCollections = useSelector(selectUserCollections);
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    dispatch(fetchFullData());
-  }, [dispatch, setBooksCollections]);
+    dispatch(fetchUserCollections(id));
+  }, [dispatch, setUserCollections]);
 
-  const userCollections = booksCollections.filter(
-    (item) => item.collection.user.id === parseInt(id)
-  );
+  // const userCollections = booksCollections.filter(
+  //   (item) => item.collection.user.id === parseInt(id)
+  // );
 
-  const duplicatedCollections = userCollections.map((item) => item.collection);
+  // const duplicatedCollections = userCollections.map((item) => item.collection);
 
-  const uniqueCollections = Array.from(
-    new Set(duplicatedCollections.map((a) => a.id))
-  ).map((id) => {
-    return duplicatedCollections.find((a) => a.id === id);
-  });
+  // const uniqueCollections = Array.from(
+  //   new Set(duplicatedCollections.map((a) => a.id))
+  // ).map((id) => {
+  //   return duplicatedCollections.find((a) => a.id === id);
+  // });
 
-  const userName = userCollections[0]?.collection.user.name;
-  if (!booksCollections.length) {
-    return [];
-  }
-
-  console.log("params", id);
-  console.log("user id", user.id);
+  // const userName = userCollections[0]?.collection.user.name;
+  // if (!booksCollections.length) {
+  //   return [];
+  // }
 
   function submitForm(event) {
     event.preventDefault();
@@ -57,9 +54,11 @@ export default function CollectionsListPage() {
 
   return (
     <>
-      <h1 className="userName">{userName}'s collections</h1>
+      <h1 className="userName">
+        {userCollections[0]?.user.name}'s collections
+      </h1>
       <div className="collectionsContainer">
-        {uniqueCollections.map((item) => (
+        {userCollections?.map((item) => (
           <Link
             to={`/collection/${item.id}`}
             key={item.id}

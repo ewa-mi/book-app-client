@@ -7,15 +7,23 @@ import {
   showMessageWithTimeout,
 } from "../appState/actions";
 
+export function setUserCollections(userCollections) {
+  return {
+    type: "SET_USER_COLLECTIONS",
+    payload: userCollections,
+  };
+}
+
 export const addNewCollection = (collectionName) => {
   return async (dispatch, getState) => {
     const { user } = getState();
     dispatch(appLoading());
+
     try {
       const response = await axios.post(
-        `${apiUrl}/collections/post`,
+        `${apiUrl}/collection/post`,
         {
-          ...collectionName,
+          name: collectionName,
           userId: user.id,
         },
         {
@@ -25,7 +33,7 @@ export const addNewCollection = (collectionName) => {
         }
       );
 
-      dispatch(addNewCollection(response.data));
+      dispatch(setUserCollections(response.data));
       dispatch(
         showMessageWithTimeout("success", true, "Hoorray! Collection added!")
       );
@@ -41,4 +49,16 @@ export const addNewCollection = (collectionName) => {
       dispatch(appDoneLoading());
     }
   };
+};
+
+export const fetchUserCollections = (userId) => async (dispatch, getState) => {
+  dispatch(appLoading());
+  try {
+    const response = await axios.get(`${apiUrl}/collection/user/${userId}`);
+
+    dispatch(setUserCollections(response.data));
+    dispatch(appDoneLoading());
+  } catch (error) {
+    console.log(error);
+  }
 };
