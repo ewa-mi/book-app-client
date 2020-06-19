@@ -1,3 +1,3 @@
-export const selectReviewBoardData = (state) => {
-  return state.homepage.reviewBoard;
+export const selectBooksCollections = (state) => {
+  return state.homepage.booksCollections;
 };

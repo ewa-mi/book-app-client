@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setReviewBoard, fetchFullData } from "../../store/homepage/actions";
-import { selectReviewBoardData } from "../../store/homepage/selectors";
+import {
+  setBooksCollections,
+  fetchFullData,
+} from "../../store/homepage/actions";
+import { selectBooksCollections } from "../../store/homepage/selectors";
 import "./index.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const reviewBoard = useSelector(selectReviewBoardData);
+  const booksCollections = useSelector(selectBooksCollections);
 
   useEffect(() => {
     dispatch(fetchFullData());
-  }, [dispatch, setReviewBoard]);
+  }, [dispatch, setBooksCollections]);
   return (
     <>
       <h1 className="header">Welcome to Book App</h1>
@@ -21,8 +24,8 @@ export default function HomePage() {
         </div>
         <div className="middleColumn">
           <h6 className="columnHeader">RECENT REVIEWS</h6>
-          {reviewBoard.length > 0 &&
-            reviewBoard.map((item) => {
+          {booksCollections.length > 0 &&
+            booksCollections.map((item) => {
               if (!item.review) {
                 return;
               }

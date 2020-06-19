@@ -7,6 +7,7 @@
 
 .collectionsContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -23,4 +24,9 @@
 
 .collectionName {
   color: white;
+}
+
+.addCollectionForm {
+  display: flex;
+  justify-content: center;
 }
