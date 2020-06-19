@@ -5,6 +5,8 @@ import { setReviewBoard, fetchFullData } from "../../store/homepage/actions";
 import { selectReviewBoardData } from "../../store/homepage/selectors";
 import { addNewCollection } from "../../store/collectionsList/actions";
 import { selectToken } from "../../store/user/selectors";
+import { selectUser } from "../../store/user/selectors";
+
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -17,6 +19,7 @@ export default function CollectionsListPage() {
   const [collectionName, setCollectionName] = useState("");
   const token = useSelector(selectToken);
   const reviewBoard = useSelector(selectReviewBoardData);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchFullData());
@@ -38,7 +41,9 @@ export default function CollectionsListPage() {
   if (!reviewBoard.length) {
     return [];
   }
-  console.log("here", uniqueCollections);
+
+  console.log("params", id);
+  console.log("user id", user.id);
 
   function submitForm(event) {
     event.preventDefault();
@@ -61,10 +66,10 @@ export default function CollectionsListPage() {
           </Link>
         ))}
       </div>
-      {token && (
+      {token && parseInt(id) === user.id && (
         <>
           <Container className="addCollectionForm">
-            <Form as={Col} xs={4} sm={6} md={4} lg={3} xl={2}>
+            <Form as={Col} xs={6} sm={6} md={5} lg={4} xl={4}>
               <h4 className="mt-5 mb-5">Add new collection</h4>
               <Form.Group controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
