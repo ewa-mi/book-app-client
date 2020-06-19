@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setReviewBoard, fetchFullData } from "../../store/homepage/actions";
-import { selectReviewBoardData } from "../../store/homepage/selectors";
+import {
+  setBooksCollections,
+  fetchFullData,
+} from "../../store/homepage/actions";
+import { selectBooksCollections } from "../../store/homepage/selectors";
 import { addNewCollection } from "../../store/collectionsList/actions";
 import { selectToken } from "../../store/user/selectors";
 import { selectUser } from "../../store/user/selectors";
@@ -18,14 +21,14 @@ export default function CollectionsListPage() {
   let { id } = useParams();
   const [collectionName, setCollectionName] = useState("");
   const token = useSelector(selectToken);
-  const reviewBoard = useSelector(selectReviewBoardData);
+  const booksCollections = useSelector(selectBooksCollections);
   const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchFullData());
-  }, [dispatch, setReviewBoard]);
+  }, [dispatch, setBooksCollections]);
 
-  const userCollections = reviewBoard.filter(
+  const userCollections = booksCollections.filter(
     (item) => item.collection.user.id === parseInt(id)
   );
 
@@ -38,7 +41,7 @@ export default function CollectionsListPage() {
   });
 
   const userName = userCollections[0]?.collection.user.name;
-  if (!reviewBoard.length) {
+  if (!booksCollections.length) {
     return [];
   }
 
