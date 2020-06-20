@@ -7,7 +7,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 25% 50% 25%;
   grid-gap: 20px;
   padding: 18px;
 }
@@ -23,11 +23,14 @@
   margin: 0;
   padding: 5px;
   border-bottom: 1px solid rgb(235, 233, 233);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .reviewBodyWrapper {
   display: grid;
-  grid-template-columns: 128px 1fr;
+  grid-template-columns: 128px calc(100% - 128px);
   padding: 5px;
 }
 
@@ -40,6 +43,7 @@
 .reviewRightSide {
   display: grid;
   padding: 10px;
+  grid-template-columns: 100%;
   grid-template-rows: repeat(3, max-content) 1fr;
 }
 
@@ -61,6 +65,13 @@
 .reviewDate,
 .reviewText {
   margin: 0;
+}
+
+.reviewTitle {
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .reviewFooter {

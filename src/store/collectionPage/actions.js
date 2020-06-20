@@ -26,6 +26,9 @@ export function setCollection(collection) {
 //           title: title,
 //           author: author,
 //           image: image,
+//           isbn: isbn,
+//           category: category,
+//           description: description,
 //           rating: rating,
 //         },
 //         {

@@ -12,8 +12,10 @@
 }
 
 .bookContainer {
+  position: relative;
   text-align: center;
-  padding-top: 20px;
+  padding: 20px;
+  padding-bottom: 7px;
   width: 300px;
   border: 1px solid rgb(235, 233, 233);
   margin: 20px;
@@ -21,13 +23,23 @@
 
 .bookImage {
   width: 128px;
+  height: 201px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .reviewed {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: white;
   background-color: black;
   width: 75px;
-  margin-top: 5px;
+  margin: 0;
+}
+
+.collectionBookTitle {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
