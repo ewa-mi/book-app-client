@@ -6,6 +6,7 @@ import {
   addNewBook,
   fetchCollection,
   setCollection,
+  fetchBookData,
 } from "../../store/collectionPage/actions";
 import { selectToken } from "../../store/user/selectors";
 import { selectUser } from "../../store/user/selectors";
@@ -43,6 +44,12 @@ export default function CollectionPage() {
 
     return stars;
   };
+
+  function findThisBook(event) {
+    event.preventDefault();
+    dispatch(fetchBookData(isbn));
+    setIsbn("");
+  }
 
   function submitForm(event) {
     event.preventDefault();
@@ -94,7 +101,7 @@ export default function CollectionPage() {
               <h4 className="mt-5 mb-5">Add new book</h4>
 
               <Form.Group controlId="formBasicName">
-                <Form.Label>ISBN</Form.Label>
+                <Form.Label>Provide ISBN</Form.Label>
                 <Form.Control
                   value={isbn}
                   onChange={(event) => setIsbn(event.target.value)}
@@ -104,6 +111,12 @@ export default function CollectionPage() {
                 />
               </Form.Group>
 
+              <Form.Group className="mt-5">
+                <Button variant="primary" type="submit" onClick={findThisBook}>
+                  Find this book
+                </Button>
+              </Form.Group>
+              <br></br>
               <Form.Group controlId="formBasicName">
                 <Form.Label>Author</Form.Label>
                 <Form.Control
@@ -160,7 +173,7 @@ export default function CollectionPage() {
               </Form.Group>
 
               <Form.Group controlId="formBasicName">
-                <Form.Label>How many stars 1-5</Form.Label>
+                <Form.Label>How good was this book?</Form.Label>
                 <Form.Control
                   value={rating}
                   onChange={(event) => setRating(event.target.value)}

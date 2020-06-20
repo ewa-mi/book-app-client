@@ -62,3 +62,17 @@ export const fetchCollection = (collectionId) => async (dispatch, getState) => {
     console.log(error);
   }
 };
+
+export const fetchBookData = (isbn) => async (dispatch, getState) => {
+  dispatch(appLoading());
+  try {
+    const response = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyAVXF89BDZJXy4wq2h4aG3wbehHCh-4Aa0`
+    );
+
+    dispatch(response.data);
+    dispatch(appDoneLoading());
+  } catch (error) {
+    console.log(error);
+  }
+};
