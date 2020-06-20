@@ -4,3 +4,23 @@
   padding-top: 20px;
   padding-bottom: 50px;
 }
+
+.allBooksContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bookContainer {
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+  border: 1px solid rgb(235, 233, 233);
+  margin: 20px;
+}
+
+.bookImage {
+  width: 128px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

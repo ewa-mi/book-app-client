@@ -25,10 +25,8 @@ export function setCollection(collection) {
 //         {
 //           title: title,
 //           author: author,
-//           kind: kind,
-//           description: description,
 //           image: image,
-
+//           rating: rating,
 //         },
 //         {
 //           headers: {
@@ -38,9 +36,7 @@ export function setCollection(collection) {
 //       );
 
 //       dispatch(setUserCollections(response.data));
-//       dispatch(
-//         showMessageWithTimeout("success", true, "Hoorray! Book added!")
-//       );
+//       dispatch(showMessageWithTimeout("success", true, "Hoorray! Book added!"));
 //       dispatch(appDoneLoading());
 //     } catch (error) {
 //       if (error.response) {
