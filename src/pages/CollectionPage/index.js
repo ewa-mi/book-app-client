@@ -43,6 +43,7 @@ export default function CollectionPage() {
               <img src={item.book.image} className="bookImage" />
               <h5>{item.book.author}</h5>
               <h5>{item.book.title}</h5>
+              {item.reviewId !== null && <h6 className="reviewed">reviewed</h6>}
             </div>
           ))}
       </div>
