@@ -28,23 +28,6 @@ export default function CollectionsListPage() {
     dispatch(fetchUserCollections(id));
   }, [dispatch, setUserCollections]);
 
-  // const userCollections = booksCollections.filter(
-  //   (item) => item.collection.user.id === parseInt(id)
-  // );
-
-  // const duplicatedCollections = userCollections.map((item) => item.collection);
-
-  // const uniqueCollections = Array.from(
-  //   new Set(duplicatedCollections.map((a) => a.id))
-  // ).map((id) => {
-  //   return duplicatedCollections.find((a) => a.id === id);
-  // });
-
-  // const userName = userCollections[0]?.collection.user.name;
-  // if (!booksCollections.length) {
-  //   return [];
-  // }
-
   function submitForm(event) {
     event.preventDefault();
     dispatch(addNewCollection(collectionName));
