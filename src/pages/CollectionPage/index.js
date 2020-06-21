@@ -42,6 +42,16 @@ export default function CollectionPage() {
   }, [dispatch, setCollection]);
 
   useEffect(() => {
+    setTitle("");
+    setAuthor("");
+    setCategory("");
+    setDescription("");
+    setImage("");
+    setRating("");
+    setIsbn("");
+  }, [collection]);
+
+  useEffect(() => {
     dispatch(fetchOnlyCollection(id));
   }, [dispatch, setOnlyCollection]);
 
@@ -50,18 +60,24 @@ export default function CollectionPage() {
       const book = bookData.items[0].volumeInfo;
 
       let categories = "";
-      categories = book.categories?.map((item) => (categories += item));
+      // eslint-disable-next-line
+      book.categories?.forEach((item) => {
+        categories += item;
+      });
 
       let authors = "";
-      authors = book.authors?.map((item) => (authors += item));
+      // eslint-disable-next-line
+      book.authors?.forEach((item) => {
+        authors += item;
+      });
 
       setTitle(book.title || "");
-      setAuthor(...authors);
-      setCategory(...categories);
+      setAuthor(authors);
+      setCategory(categories);
       setDescription(book.description || "");
       setImage(book.imageLinks.thumbnail || "");
     }
-  }, [dispatch, bookData]);
+  }, [bookData]);
 
   const setStars = (rating) => {
     let stars = "";
