@@ -42,3 +42,8 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+.addBookForm {
+  display: flex;
+  justify-content: center;
+}

@@ -109,6 +109,8 @@ export default function CollectionPage() {
     dispatch(addNewBook(providedData));
   }
 
+  console.log(collection);
+
   return (
     <div>
       <h1 className="collectionHeader">{onlyCollection.name}</h1>
@@ -208,14 +210,20 @@ export default function CollectionPage() {
               </Form.Group>
 
               <Form.Group controlId="formBasicName">
-                <Form.Label>How good was this book?</Form.Label>
+                <Form.Label>Rate this book in scale 1-5</Form.Label>
                 <Form.Control
+                  as="select"
+                  type="text"
                   value={rating}
                   onChange={(event) => setRating(event.target.value)}
-                  type="text"
-                  placeholder="Provide number 1-5"
                   required
-                />
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </Form.Control>
               </Form.Group>
 
               <Form.Group className="mt-5">
