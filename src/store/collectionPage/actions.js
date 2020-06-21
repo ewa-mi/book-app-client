@@ -30,15 +30,16 @@ export function setBookData(bookData) {
 
 export const addNewBook = (providedData) => {
   return async (dispatch, getState) => {
-    const { user } = getState();
+    const { user, collection } = getState();
     dispatch(appLoading());
 
     try {
       const response = await axios.post(
-        `${apiUrl}/????????/post`,
+        `${apiUrl}/bookscollection/post`,
         {
           ...providedData,
           userId: user.id,
+          collectionId: collection.onlyCollection.id,
         },
         {
           headers: {
@@ -95,7 +96,6 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyAVXF89BDZJXy4wq2h4aG3wbehHCh-4Aa0`
     );
-    console.log("response data", response.data);
 
     dispatch(setBookData(response.data));
     dispatch(appDoneLoading());
@@ -104,7 +104,7 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
         showMessageWithTimeout(
           "primary",
           true,
-          "We didn't find this book. Provide correct ISBN or fill inputs on you own."
+          "Sorry, we didn't find that book. Provide correct ISBN or fill the inputs on you own."
         )
       );
   } catch (error) {

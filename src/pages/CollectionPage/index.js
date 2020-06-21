@@ -50,16 +50,16 @@ export default function CollectionPage() {
       const book = bookData.items[0].volumeInfo;
 
       let categories = "";
-      book.categories.map((item) => (categories += item));
+      categories = book.categories?.map((item) => (categories += item));
 
       let authors = "";
-      book.authors.map((item) => (authors += item));
+      authors = book.authors?.map((item) => (authors += item));
 
-      setTitle(book.title);
-      setAuthor(authors);
-      setCategory(categories);
-      setDescription(book.description);
-      setImage(book.imageLinks.thumbnail);
+      setTitle(book.title || "");
+      setAuthor(...authors);
+      setCategory(...categories);
+      setDescription(book.description || "");
+      setImage(book.imageLinks.thumbnail || "");
     }
   }, [dispatch, bookData]);
 
@@ -80,7 +80,6 @@ export default function CollectionPage() {
 
   function submitForm(event) {
     event.preventDefault();
-    dispatch(addNewBook(providedData));
     const providedData = {
       title: title,
       author: author,
@@ -90,12 +89,13 @@ export default function CollectionPage() {
       description: description,
       rating: rating,
     };
+
+    dispatch(addNewBook(providedData));
   }
-  console.log("here", collection);
 
   return (
     <div>
-      <h1 className="collectionHeader">{collection[0]?.collection.name}</h1>
+      <h1 className="collectionHeader">{onlyCollection.name}</h1>
       <div className="allBooksContainer">
         {collection.length > 0 &&
           collection.map((item) => (
@@ -203,7 +203,11 @@ export default function CollectionPage() {
               </Form.Group>
 
               <Form.Group className="mt-5">
-                <Button variant="primary" type="submit" onClick={submitForm}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  onClick={(event) => submitForm(event)}
+                >
                   Submit
                 </Button>
               </Form.Group>
