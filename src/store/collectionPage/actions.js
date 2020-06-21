@@ -102,7 +102,7 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
     !response.data.totalItems &&
       dispatch(
         showMessageWithTimeout(
-          "warning",
+          "primary",
           true,
           "We didn't find this book. Provide correct ISBN or fill inputs on you own."
         )
