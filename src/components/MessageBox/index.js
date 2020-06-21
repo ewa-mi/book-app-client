@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectMessage } from "../../store/appState/selectors";
 import { Alert } from "react-bootstrap";
 import { clearMessage } from "../../store/appState/actions";
+import "./index.css";
 
 export default function MessageBox() {
   const message = useSelector(selectMessage);
@@ -12,6 +13,7 @@ export default function MessageBox() {
 
   return (
     <Alert
+      className="alert"
       show={showMessage}
       variant={message.variant}
       dismissible={message.dismissable}
