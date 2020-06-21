@@ -1,11 +1,18 @@
-const initialState = [];
+const initialState = {
+  collection: [],
+};
 
 export default function collectionReducer(state = initialState, action) {
-  let newState = [...state];
+  let newState = { ...state };
 
   switch (action.type) {
     case "SET_COLLECTION": {
-      newState = action.payload;
+      newState.collection = action.payload;
+      break;
+    }
+
+    case "SET_BOOK_DATA": {
+      newState.bookData = action.payload;
       break;
     }
 

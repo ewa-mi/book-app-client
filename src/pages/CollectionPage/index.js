@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCollection } from "../../store/collectionPage/selectors";
+import {
+  selectCollection,
+  selectBookData,
+} from "../../store/collectionPage/selectors";
 import {
   addNewBook,
   fetchCollection,
   setCollection,
   fetchBookData,
 } from "../../store/collectionPage/actions";
-import { selectToken } from "../../store/user/selectors";
-import { selectUser } from "../../store/user/selectors";
-
+import { selectToken, selectUser } from "../../store/user/selectors";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -21,6 +22,7 @@ export default function CollectionPage() {
   const dispatch = useDispatch();
   let { id } = useParams();
   const token = useSelector(selectToken);
+  const bookData = useSelector(selectBookData);
   const collection = useSelector(selectCollection);
   const user = useSelector(selectUser);
   const [title, setTitle] = useState("");
@@ -35,6 +37,23 @@ export default function CollectionPage() {
     dispatch(fetchCollection(id));
   }, [dispatch, setCollection]);
 
+  useEffect(() => {
+    console.log(bookData);
+
+    if (bookData && bookData.totalItems) {
+      const book = bookData.items[0].volumeInfo;
+
+      let categories = "";
+      book.categories.map((item) => (categories += item));
+
+      setTitle(book.title);
+      setAuthor(book.authors[0]);
+      setCategory(categories);
+      setDescription(book.description);
+      setImage(book.imageLinks.thumbnail);
+    }
+  }, [dispatch, bookData]);
+
   const setStars = (rating) => {
     let stars = "";
 
@@ -48,7 +67,6 @@ export default function CollectionPage() {
   function findThisBook(event) {
     event.preventDefault();
     dispatch(fetchBookData(isbn));
-    setIsbn("");
   }
 
   function submitForm(event) {
@@ -63,16 +81,7 @@ export default function CollectionPage() {
       description: description,
       rating: rating,
     };
-
-    setTitle("");
-    setAuthor("");
-    setIsbn("");
-    setCategory("");
-    setDescription("");
-    setRating("");
-    setImage("");
   }
-  console.log("user", user.id);
 
   return (
     <div>

@@ -14,6 +14,13 @@ export function setCollection(collection) {
   };
 }
 
+export function setBookData(bookData) {
+  return {
+    type: "SET_BOOK_DATA",
+    payload: bookData,
+  };
+}
+
 export const addNewBook = (providedData) => {
   return async (dispatch, getState) => {
     const { user } = getState();
@@ -70,7 +77,7 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyAVXF89BDZJXy4wq2h4aG3wbehHCh-4Aa0`
     );
 
-    dispatch(response.data);
+    dispatch(setBookData(response.data));
     dispatch(appDoneLoading());
   } catch (error) {
     console.log(error);
