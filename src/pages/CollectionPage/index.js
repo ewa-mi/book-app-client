@@ -4,12 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectCollection,
   selectBookData,
+  selectOnlyCollection,
 } from "../../store/collectionPage/selectors";
 import {
   addNewBook,
   fetchCollection,
+  fetchOnlyCollection,
   setCollection,
   fetchBookData,
+  setOnlyCollection,
 } from "../../store/collectionPage/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
 import Form from "react-bootstrap/Form";
@@ -24,6 +27,7 @@ export default function CollectionPage() {
   const token = useSelector(selectToken);
   const bookData = useSelector(selectBookData);
   const collection = useSelector(selectCollection);
+  const onlyCollection = useSelector(selectOnlyCollection);
   const user = useSelector(selectUser);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -38,16 +42,21 @@ export default function CollectionPage() {
   }, [dispatch, setCollection]);
 
   useEffect(() => {
-    console.log(bookData);
+    dispatch(fetchOnlyCollection(id));
+  }, [dispatch, setOnlyCollection]);
 
+  useEffect(() => {
     if (bookData && bookData.totalItems) {
       const book = bookData.items[0].volumeInfo;
 
       let categories = "";
       book.categories.map((item) => (categories += item));
 
+      let authors = "";
+      book.authors.map((item) => (authors += item));
+
       setTitle(book.title);
-      setAuthor(book.authors[0]);
+      setAuthor(authors);
       setCategory(categories);
       setDescription(book.description);
       setImage(book.imageLinks.thumbnail);
@@ -82,6 +91,7 @@ export default function CollectionPage() {
       rating: rating,
     };
   }
+  console.log("here", collection);
 
   return (
     <div>
@@ -103,7 +113,7 @@ export default function CollectionPage() {
             </div>
           ))}
       </div>
-      {token && collection[0]?.collection.userId === user.id && (
+      {token && onlyCollection.userId === user.id && (
         <>
           <Container className="addBookForm">
             <Form as={Col} xs={6} sm={6} md={5} lg={4} xl={4}>

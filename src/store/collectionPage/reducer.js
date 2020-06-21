@@ -1,5 +1,6 @@
 const initialState = {
   collection: [],
+  onlyCollection: [],
 };
 
 export default function collectionReducer(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function collectionReducer(state = initialState, action) {
 
     case "SET_BOOK_DATA": {
       newState.bookData = action.payload;
+      break;
+    }
+
+    case "SET_ONLY_COLLECTION": {
+      newState.onlyCollection = action.payload;
       break;
     }
 

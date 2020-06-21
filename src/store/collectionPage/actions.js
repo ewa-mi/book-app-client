@@ -14,6 +14,13 @@ export function setCollection(collection) {
   };
 }
 
+export function setOnlyCollection(onlyCollection) {
+  return {
+    type: "SET_ONLY_COLLECTION",
+    payload: onlyCollection,
+  };
+}
+
 export function setBookData(bookData) {
   return {
     type: "SET_BOOK_DATA",
@@ -70,15 +77,36 @@ export const fetchCollection = (collectionId) => async (dispatch, getState) => {
   }
 };
 
+export const fetchOnlyCollection = (id) => async (dispatch, getState) => {
+  dispatch(appLoading());
+  try {
+    const response = await axios.get(`${apiUrl}/collection/${id}`);
+
+    dispatch(setOnlyCollection(response.data));
+    dispatch(appDoneLoading());
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const fetchBookData = (isbn) => async (dispatch, getState) => {
   dispatch(appLoading());
   try {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyAVXF89BDZJXy4wq2h4aG3wbehHCh-4Aa0`
     );
+    console.log("response data", response.data);
 
     dispatch(setBookData(response.data));
     dispatch(appDoneLoading());
+    !response.data.totalItems &&
+      dispatch(
+        showMessageWithTimeout(
+          "warning",
+          true,
+          "We didn't find this book. Provide correct ISBN or fill inputs on you own."
+        )
+      );
   } catch (error) {
     console.log(error);
   }
