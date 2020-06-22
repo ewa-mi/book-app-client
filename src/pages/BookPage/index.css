@@ -14,7 +14,7 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  max-width: 600px;
+  margin-top: 10px;
 }
 
 .bookDetails {
@@ -25,12 +25,17 @@
 
 .bookReview {
   margin-top: 60px;
-  max-width: 600px;
   margin-bottom: 30px;
 }
 
 .bookPageMain {
   margin: 0 auto;
   padding: 0 20px;
-  max-width: 600px;
+  max-width: 700px;
+}
+
+.addReviewForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }

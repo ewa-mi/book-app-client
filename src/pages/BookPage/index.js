@@ -86,16 +86,14 @@ export default function BookPage() {
             <p>{bookDetails.book.description}</p>
           </div>
         </div>
-        <div className="bookReview">
-          {bookDetails.review && (
-            <>
-              <h4>{bookDetails.review.title}</h4>
-              <p>{bookDetails.review.createdAt.split("T")[0]}</p>
-              <p>{bookDetails.review.content}</p>
-              <h5>{bookDetails.review.likes} 🖤</h5>
-            </>
-          )}
-        </div>
+        {bookDetails.review && (
+          <div className="bookReview">
+            <h4>{bookDetails.review.title}</h4>
+            <p>{bookDetails.review.createdAt.split("T")[0]}</p>
+            <p>{bookDetails.review.content}</p>
+            <h5>{bookDetails.review.likes} 🖤</h5>
+          </div>
+        )}
       </div>
       {token &&
         !bookDetails.review &&
