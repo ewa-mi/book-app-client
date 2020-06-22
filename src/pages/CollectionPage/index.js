@@ -109,8 +109,6 @@ export default function CollectionPage() {
     dispatch(addNewBook(providedData));
   }
 
-  console.log(collection);
-
   return (
     <div>
       <h1 className="collectionHeader">{onlyCollection.name}</h1>
@@ -125,7 +123,7 @@ export default function CollectionPage() {
               <h5>{item.book.author}</h5>
               <h5 className="collectionBookTitle">{item.book.title}</h5>
               <hr />
-              <Link to={`/book/${item.book.id}`} key={item.id}>
+              <Link to={`/book/${id}/${item.book.id}`}>
                 <h6>details</h6>
               </Link>
             </div>
@@ -138,7 +136,9 @@ export default function CollectionPage() {
               <h4 className="mt-5 mb-5">Add new book</h4>
 
               <Form.Group controlId="formBasicName">
-                <Form.Label>Provide ISBN</Form.Label>
+                <Form.Label>
+                  Provide ISBN, to fill inputs automatically
+                </Form.Label>
                 <Form.Control
                   value={isbn}
                   onChange={(event) => setIsbn(event.target.value)}
@@ -203,7 +203,7 @@ export default function CollectionPage() {
                 <Form.Control
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
-                  type="text"
+                  as="textarea"
                   placeholder="Short description"
                   required
                 />
