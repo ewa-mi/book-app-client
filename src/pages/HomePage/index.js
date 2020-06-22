@@ -66,7 +66,11 @@ export default function HomePage() {
                           </span>
                         </p>
                         <div className="reviewMore">
-                          <Link to={`/book/${item.id}`}>...more</Link>
+                          <Link
+                            to={`/book/${item.collection.id}/${item.book.id}`}
+                          >
+                            ...more
+                          </Link>
                         </div>
                       </div>
                     </div>

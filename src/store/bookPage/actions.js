@@ -14,6 +14,13 @@ export function setBookDetails(bookDetails) {
   };
 }
 
+export function setNewReview(newReview) {
+  return {
+    type: "SET_NEW_REVIEW",
+    payload: newReview,
+  };
+}
+
 export const fetchBookDetails = (collectionId, bookId) => async (
   dispatch,
   getState
@@ -29,4 +36,40 @@ export const fetchBookDetails = (collectionId, bookId) => async (
   } catch (error) {
     console.log(error);
   }
+};
+
+export const addNewReview = (newReviewData) => {
+  return async (dispatch, getState) => {
+    const { user } = getState();
+    dispatch(appLoading());
+
+    try {
+      const response = await axios.post(
+        `${apiUrl}/review/post`,
+        {
+          ...newReviewData,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+
+      dispatch(setBookDetails(...response.data));
+      dispatch(
+        showMessageWithTimeout("success", true, "Hoorray! Review added!")
+      );
+      dispatch(appDoneLoading());
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(setMessage("danger", true, error.response.data.message));
+      } else {
+        console.log(error.message);
+        dispatch(setMessage("danger", true, error.message));
+      }
+      dispatch(appDoneLoading());
+    }
+  };
 };

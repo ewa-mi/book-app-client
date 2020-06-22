@@ -2,8 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBookDetails } from "../../store/bookPage/selectors";
-import { fetchBookDetails, setBookDetails } from "../../store/bookPage/actions";
+import {
+  fetchBookDetails,
+  setBookDetails,
+  addNewReview,
+} from "../../store/bookPage/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import { Col } from "react-bootstrap";
 import "./index.css";
 
 export default function BookPage() {
@@ -11,10 +19,26 @@ export default function BookPage() {
   let { collectionId, bookId } = useParams();
   const bookDetails = useSelector(selectBookDetails);
   const user = useSelector(selectUser);
+  const token = useSelector(selectToken);
+  const [reviewTitle, setReviewTitle] = useState("");
+  const [reviewContent, setReviewContent] = useState("");
 
   useEffect(() => {
     dispatch(fetchBookDetails(collectionId, bookId));
   }, [dispatch, setBookDetails]);
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    const newReviewData = {
+      reviewTitle: reviewTitle,
+      reviewContent: reviewContent,
+      collectionId: collectionId,
+      bookId: bookId,
+    };
+
+    dispatch(addNewReview(newReviewData));
+  }
 
   if (!Object.keys(bookDetails).length) {
     return [];
@@ -73,14 +97,40 @@ export default function BookPage() {
           )}
         </div>
       </div>
+      {token &&
+        !bookDetails.review &&
+        bookDetails.collection.user.id === user.id && (
+          <>
+            <Container className="addReviewForm">
+              <Form as={Col} xs={6} sm={6} md={5} lg={4} xl={4}>
+                <h4 className="mt-5 mb-5">Add review</h4>
+                <Form.Group controlId="formBasicTitle">
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control
+                    value={reviewTitle}
+                    onChange={(event) => setReviewTitle(event.target.value)}
+                    type="text"
+                    placeholder="Review title"
+                  />
+                </Form.Group>
+                <Form.Group controlId="formBasicContent">
+                  <Form.Label>Content</Form.Label>
+                  <Form.Control
+                    value={reviewContent}
+                    onChange={(event) => setReviewContent(event.target.value)}
+                    as="textarea"
+                    placeholder="Write your review here"
+                  />
+                </Form.Group>
+                <Form.Group className="mt-5">
+                  <Button variant="primary" type="submit" onClick={submitForm}>
+                    Submit
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Container>
+          </>
+        )}
     </>
   );
-}
-
-{
-  /* <Link
-  to={`/collectionslist/${bookDetails.collection.user.id}`}
->
-  {item.collection.user.name}
-</Link>; */
 }
