@@ -6,6 +6,7 @@ import {
   fetchBookDetails,
   setBookDetails,
   addNewReview,
+  updateAmountOfLikes,
 } from "../../store/bookPage/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
 import Form from "react-bootstrap/Form";
@@ -54,6 +55,12 @@ export default function BookPage() {
     return stars;
   };
 
+  const addLike = () => {
+    console.log(7);
+
+    dispatch(updateAmountOfLikes(bookDetails));
+  };
+
   return (
     <>
       <h1 className="bookPageHeader">
@@ -91,7 +98,10 @@ export default function BookPage() {
             <h4>{bookDetails.review.title}</h4>
             <p>{bookDetails.review.createdAt.split("T")[0]}</p>
             <p>{bookDetails.review.content}</p>
-            <h5>{bookDetails.review.likes} 🖤</h5>
+            <h5 className="likesNumber">{bookDetails.review.likes}</h5>
+            <button className="heartButton" onClick={() => addLike()}>
+              🖤
+            </button>
           </div>
         )}
       </div>

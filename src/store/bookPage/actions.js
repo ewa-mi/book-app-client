@@ -73,3 +73,14 @@ export const addNewReview = (newReviewData) => {
     }
   };
 };
+
+export const updateAmountOfLikes = (bookDetails) => {
+  return async (dispatch, getState) => {
+    const response = await axios.patch(`${apiUrl}/review/likes`, {
+      likes: bookDetails.review.likes + 1,
+      id: bookDetails.review.id,
+    });
+
+    dispatch(setBookDetails(...response.data));
+  };
+};

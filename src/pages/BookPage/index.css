@@ -39,3 +39,16 @@
   justify-content: center;
   margin-bottom: 30px;
 }
+
+.likesNumber {
+  display: inline;
+}
+
+.heartButton {
+  background: none;
+  border: none;
+}
+
+.heartButton:focus {
+  outline: none;
+}
