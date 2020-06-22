@@ -14,11 +14,14 @@ export function setBookDetails(bookDetails) {
   };
 }
 
-export const fetchBookDetails = (bookId) => async (dispatch, getState) => {
+export const fetchBookDetails = (collectionId, bookId) => async (
+  dispatch,
+  getState
+) => {
   dispatch(appLoading());
   try {
     const response = await axios.get(
-      `${apiUrl}/bookscollection/book/${bookId}`
+      `${apiUrl}/bookscollection/book/${collectionId}/${bookId}`
     );
 
     dispatch(setBookDetails(response.data));

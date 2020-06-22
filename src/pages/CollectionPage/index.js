@@ -123,7 +123,7 @@ export default function CollectionPage() {
               <h5>{item.book.author}</h5>
               <h5 className="collectionBookTitle">{item.book.title}</h5>
               <hr />
-              <Link to={`/book/${item.book.id}`} key={item.id}>
+              <Link to={`/book/${id}/${item.book.id}`}>
                 <h6>details</h6>
               </Link>
             </div>

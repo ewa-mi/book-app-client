@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBookDetails } from "../../store/bookPage/selectors";
 import { fetchBookDetails, setBookDetails } from "../../store/bookPage/actions";
@@ -8,12 +8,12 @@ import "./index.css";
 
 export default function BookPage() {
   const dispatch = useDispatch();
-  let { id } = useParams();
+  let { collectionId, bookId } = useParams();
   const bookDetails = useSelector(selectBookDetails);
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    dispatch(fetchBookDetails(id));
+    dispatch(fetchBookDetails(collectionId, bookId));
   }, [dispatch, setBookDetails]);
 
   if (!Object.keys(bookDetails).length) {
@@ -42,8 +42,18 @@ export default function BookPage() {
             <img src={bookDetails.book.image} className="bookImg" />
           </div>
           <div className="bookDetails">
-            <h6>Collector - {bookDetails.collection.user.name}</h6>
-            <h6>Collection - {bookDetails.collection.name}</h6>
+            <h6>
+              Collector -{" "}
+              <Link to={`/collectionslist/${bookDetails.collection.user.id}`}>
+                {bookDetails.collection.user.name}
+              </Link>
+            </h6>
+            <h6>
+              Collection -{" "}
+              <Link to={`/collection/${bookDetails.collection.id}`}>
+                {bookDetails.collection.name}
+              </Link>
+            </h6>
             <hr></hr>
             <h6>ISBN - {bookDetails.book.ISBN}</h6>
             <h6>Category - {bookDetails.book.category}</h6>
@@ -65,4 +75,12 @@ export default function BookPage() {
       </div>
     </>
   );
+}
+
+{
+  /* <Link
+  to={`/collectionslist/${bookDetails.collection.user.id}`}
+>
+  {item.collection.user.name}
+</Link>; */
 }
