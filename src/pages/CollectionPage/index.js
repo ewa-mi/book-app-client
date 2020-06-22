@@ -109,8 +109,6 @@ export default function CollectionPage() {
     dispatch(addNewBook(providedData));
   }
 
-  console.log(collection);
-
   return (
     <div>
       <h1 className="collectionHeader">{onlyCollection.name}</h1>
