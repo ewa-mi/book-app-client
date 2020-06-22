@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectBookDetails } from "../../store/bookPage/selectors";
 import { fetchBookDetails, setBookDetails } from "../../store/bookPage/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
+import "./index.css";
 
 export default function BookPage() {
   const dispatch = useDispatch();
@@ -31,26 +32,37 @@ export default function BookPage() {
 
   return (
     <>
-      <h1>
+      <h1 className="bookPageHeader">
         {bookDetails.book.author} - {bookDetails.book.title}
       </h1>
-      <h5>{setStars(bookDetails.rating)}</h5>
-      <img src={bookDetails.book.image} className="bookImage" />
-      <h6>Collector - {bookDetails.collection.user.name}</h6>
-      <h6>Collection - {bookDetails.collection.name}</h6>
-      <hr></hr>
-      <h6>ISBN - {bookDetails.book.ISBN}</h6>
-      <h6>Category - {bookDetails.book.category}</h6>
-      <h6>Description - {bookDetails.book.description}</h6>
-      <hr></hr>
-      {bookDetails.review && (
-        <>
-          <h4>{bookDetails.review.title}</h4>
-          <p>{bookDetails.review.createdAt.split("T")[0]}</p>
-          <p>{bookDetails.review.content}</p>
-          <h5>{bookDetails.review.likes} 🖤</h5>
-        </>
-      )}
+      <div className="bookPageMain">
+        <div className="bookFrame">
+          <div>
+            <h5>{setStars(bookDetails.rating)}</h5>
+            <img src={bookDetails.book.image} className="bookImg" />
+          </div>
+          <div className="bookDetails">
+            <h6>Collector - {bookDetails.collection.user.name}</h6>
+            <h6>Collection - {bookDetails.collection.name}</h6>
+            <hr></hr>
+            <h6>ISBN - {bookDetails.book.ISBN}</h6>
+            <h6>Category - {bookDetails.book.category}</h6>
+            <hr></hr>
+            <h6>Description </h6>
+            <p>{bookDetails.book.description}</p>
+          </div>
+        </div>
+        <div className="bookReview">
+          {bookDetails.review && (
+            <>
+              <h4>{bookDetails.review.title}</h4>
+              <p>{bookDetails.review.createdAt.split("T")[0]}</p>
+              <p>{bookDetails.review.content}</p>
+              <h5>{bookDetails.review.likes} 🖤</h5>
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 }
