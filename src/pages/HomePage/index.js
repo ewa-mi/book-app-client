@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SidebarLeft from "../../components/SidebarLeft";
+import SidebarRight from "../../components/SidebarRight";
 import {
   setBooksCollections,
   fetchFullData,
@@ -83,6 +84,7 @@ export default function HomePage() {
         </div>
         <div className="rightColumn">
           <h6 className="columnHeader">NEWS</h6>
+          <SidebarRight />
         </div>
       </div>
     </>
