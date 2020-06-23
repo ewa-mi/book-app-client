@@ -34,11 +34,12 @@ export default function CollectionsListPage() {
 
     setCollectionName("");
   }
+  console.log("show user", user);
 
   return (
     <>
       <h1 className="userName">
-        {userCollections[0]?.user.name}'s collections
+        {userCollections[0]?.user.name || user.name}'s collections
       </h1>
       <div className="collectionsContainer">
         {userCollections?.map((item) => (
