@@ -75,7 +75,7 @@ export default function CollectionPage() {
       setAuthor(authors);
       setCategory(categories);
       setDescription(book.description || "");
-      setImage(book.imageLinks.thumbnail || "");
+      setImage(book.imageLinks?.thumbnail || "");
     }
   }, [bookData]);
 
