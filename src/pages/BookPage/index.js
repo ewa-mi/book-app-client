@@ -123,6 +123,7 @@ export default function BookPage() {
                     onChange={(event) => setReviewTitle(event.target.value)}
                     type="text"
                     placeholder="Review title"
+                    required
                   />
                 </Form.Group>
                 <Form.Group controlId="formBasicContent">
@@ -132,6 +133,7 @@ export default function BookPage() {
                     onChange={(event) => setReviewContent(event.target.value)}
                     as="textarea"
                     placeholder="Write your review here"
+                    required
                   />
                 </Form.Group>
                 <Form.Group className="mt-5">

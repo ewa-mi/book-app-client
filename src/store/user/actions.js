@@ -90,7 +90,7 @@ export const signUp = (name, email, password) => {
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
-        dispatch(setMessage("danger", true, error.response.data.message));
+        dispatch(setMessage("danger", true, "Please, provide required data"));
       } else {
         console.log(error.message);
         dispatch(setMessage("danger", true, error.message));
