@@ -1,0 +1,154 @@
+.aboutText {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@keyframes flap-r {
+  0%,
+  10% {
+    border-top-width: 60px;
+  }
+  40%,
+  60% {
+    border-top-width: 10px;
+  }
+  100% {
+    border-top-width: 60px;
+  }
+}
+
+@keyframes flap-l {
+  0% {
+    border-bottom-width: 0px;
+  }
+  40%,
+  60% {
+    border-bottom-width: 40px;
+  }
+  100% {
+    border-bottom-width: 0px;
+  }
+}
+
+@keyframes fly {
+  0% {
+    left: 0%;
+    top: 100px;
+    -webkit-transform: scale3d(0.5, 0.5, 1);
+  }
+  100% {
+    left: 100%;
+    top: 100px;
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bob {
+  0% {
+    top: 25px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 25px;
+  }
+}
+
+.pictureframe {
+  position: relative;
+  width: 100px;
+  margin-top: 100px;
+  animation: fly 3.5s infinite linear;
+}
+
+.shadow {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 140px;
+  left: 00px;
+  border-width: 10px;
+  border-left-width: 50px;
+  border-top-width: 0px;
+  border-right-width: 40px;
+  border-color: transparent;
+  border-bottom-color: rgba(210, 210, 210, 0.6);
+  border-style: solid;
+  filter: blur(5px);
+}
+
+.shadow:after {
+  content: " ";
+  position: absolute;
+  width: 00px;
+  height: 0px;
+  top: 10px;
+  left: -50px;
+  border-width: 10px;
+  border-left-width: 50px;
+  border-bottom-width: 0px;
+  border-right-width: 40px;
+  border-color: transparent;
+  border-top-color: rgba(210, 210, 210, 0.6);
+  border-style: solid;
+}
+
+.bird div {
+  position: absolute;
+}
+
+.bird {
+  position: absolute;
+  animation: bob 0.7s infinite cubic-bezier(0.7, 0.7, 0.1, 0.4);
+}
+
+.body1,
+.body2,
+.wing-l,
+.wing-r {
+  width: 0px;
+  height: 0px;
+  border-color: transparent;
+  border-style: solid;
+}
+.body1 {
+  border-width: 15px;
+  border-left-width: 25px;
+  border-top-width: 15px;
+  border-right-width: 55px;
+  border-top-color: #333;
+}
+
+.body2 {
+  left: 50px;
+  bottom: 0px;
+  border-width: 10px;
+  border-left-width: 5px;
+  border-top-width: 0px;
+  border-right-width: 15px;
+  border-bottom-color: #777;
+}
+
+.wing-l {
+  left: 22px;
+  bottom: 0px;
+  border-width: 60px;
+  border-left-width: 20px;
+  border-top-width: 0px;
+  border-right-width: 6px;
+  border-bottom-color: #444;
+  animation: flap-l 0.7s infinite;
+}
+
+.wing-r {
+  left: 22px;
+  top: 0px;
+  border-width: 60px;
+  border-left-width: 20px;
+  border-bottom-width: 0px;
+  border-right-width: 6px;
+  border-top-color: #777;
+  animation: flap-r 0.7s infinite;
+}

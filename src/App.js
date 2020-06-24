@@ -7,10 +7,10 @@ import MessageBox from "./components/MessageBox";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import CollectionsListPage from "./pages/CollectionsListPage";
 import CollectionPage from "./pages/CollectionPage";
 import BookPage from "./pages/BookPage";
-import { selectUser } from "./store/user/selectors";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +18,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -31,9 +30,10 @@ export default function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
         <Route path="/collectionslist/:id" component={CollectionsListPage} />
         <Route path="/collection/:id" component={CollectionPage} />
-        <Route path="/book/:id" component={BookPage} />
+        <Route path="/book/:collectionId/:bookId" component={BookPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
       </Switch>

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
@@ -27,6 +27,7 @@ export default function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav style={{ width: "100%" }} fill>
             <NavbarItem path="/" linkText="Homepage" />
+            <NavbarItem path="/about" linkText="About" />
             <NavbarItem
               path={user?.id ? `/collectionslist/${user.id}` : "/signup"}
               linkText="Your collections"
