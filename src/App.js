@@ -10,7 +10,6 @@ import HomePage from "./pages/HomePage";
 import CollectionsListPage from "./pages/CollectionsListPage";
 import CollectionPage from "./pages/CollectionPage";
 import BookPage from "./pages/BookPage";
-import { selectUser } from "./store/user/selectors";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +17,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());

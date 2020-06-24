@@ -70,7 +70,11 @@ export default function BookPage() {
         <div className="bookFrame">
           <div>
             <h5>{setStars(bookDetails.rating)}</h5>
-            <img src={bookDetails.book.image} className="bookImg" />
+            <img
+              src={bookDetails.book.image}
+              className="bookImg"
+              alt="book cover"
+            />
           </div>
           <div className="bookDetails">
             <h6>
@@ -100,7 +104,9 @@ export default function BookPage() {
             <p>{bookDetails.review.content}</p>
             <h5 className="likesNumber">{bookDetails.review.likes}</h5>
             <button className="heartButton" onClick={() => addLike()}>
-              🖤
+              <span role="img" aria-label="heart" className="heartEmoji">
+                🖤
+              </span>
             </button>
           </div>
         )}

@@ -41,7 +41,11 @@ export default function HomePage() {
                   <h3 className="bookTitle">{`${item.book.author} - ${item.book.title}`}</h3>
 
                   <div className="reviewBodyWrapper">
-                    <img src={item.book.image} className="reviewImage" />
+                    <img
+                      src={item.book.image}
+                      className="reviewImage"
+                      alt="book cover"
+                    />
                     <div className="reviewRightSide">
                       <div className="reviewTitleWrapper">
                         <h4 className="reviewTitle">{item.review.title}</h4>
