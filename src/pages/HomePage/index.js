@@ -19,7 +19,7 @@ export default function HomePage() {
   }, [dispatch, setBooksCollections]);
   return (
     <>
-      <h1 className="header">Welcome to Book App</h1>
+      <h1 className="header">Welcome to The Book App</h1>
       <div className="grid">
         <div className="leftColumn">
           <h6 className="columnHeader">BOOK RECOMMENDATIONS</h6>
@@ -41,7 +41,11 @@ export default function HomePage() {
                   <h3 className="bookTitle">{`${item.book.author} - ${item.book.title}`}</h3>
 
                   <div className="reviewBodyWrapper">
-                    <img src={item.book.image} className="reviewImage" />
+                    <img
+                      src={item.book.image}
+                      className="reviewImage"
+                      alt="book cover"
+                    />
                     <div className="reviewRightSide">
                       <div className="reviewTitleWrapper">
                         <h4 className="reviewTitle">{item.review.title}</h4>

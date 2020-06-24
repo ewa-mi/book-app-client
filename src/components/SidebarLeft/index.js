@@ -7,7 +7,7 @@ import img4 from "../../assets/img4.jpg";
 export default function SidebarLeft() {
   return (
     <div className="leftSidebarFrame">
-      <img className="leftSidebarImg" src={img1} />
+      <img className="leftSidebarImg" src={img1} alt="Z.Smith" />
       <h4 className="sidebarLeftTitle">Zadie Smith - On Beauty</h4>
       <p>
         The story follows the lives of a mixed-race British/American family
@@ -23,7 +23,7 @@ export default function SidebarLeft() {
         <h6 className="goToBookstore">Go to bookstore</h6>
       </Button>
       <hr></hr>
-      <img className="leftSidebarImg" src={img4} />
+      <img className="leftSidebarImg" src={img4} alt="book cover" />
       <h4 className="sidebarLeftTitle">
         Carlos Ruiz Zafón - The Shadow of the Wind
       </h4>

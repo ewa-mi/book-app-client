@@ -7,7 +7,7 @@ import img3 from "../../assets/img3.jpg";
 export default function SidebarRight() {
   return (
     <div className="rightSidebarFrame">
-      <img className="rightSidebarImg" src={img2} />
+      <img className="rightSidebarImg" src={img2} alt="J.K.Rowling" />
       <h4 className="sidebarRightTitle">J.K. Rowling's controversy</h4>
       <p>
         Authors at J.K. Rowling's literary agency quit over company's refusal to
@@ -22,7 +22,7 @@ export default function SidebarRight() {
         <h6 className="goToNews">Read more</h6>
       </Button>
       <hr></hr>
-      <img className="rightSidebarImg" src={img3} />
+      <img className="rightSidebarImg" src={img3} alt="book cover" />
       <h4 className="sidebarRightTitle">
         One man and his dog win prestigious Dutch literature prize
       </h4>
