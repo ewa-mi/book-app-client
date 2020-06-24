@@ -34,7 +34,6 @@ export default function CollectionsListPage() {
 
     setCollectionName("");
   }
-  console.log("show user", user);
 
   return (
     <>

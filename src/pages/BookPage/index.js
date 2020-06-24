@@ -56,8 +56,6 @@ export default function BookPage() {
   };
 
   const addLike = () => {
-    console.log(7);
-
     dispatch(updateAmountOfLikes(bookDetails));
   };
 

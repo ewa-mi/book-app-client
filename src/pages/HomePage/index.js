@@ -19,7 +19,7 @@ export default function HomePage() {
   }, [dispatch, setBooksCollections]);
   return (
     <>
-      <h1 className="header">Welcome to Book App</h1>
+      <h1 className="header">Welcome to The Book App</h1>
       <div className="grid">
         <div className="leftColumn">
           <h6 className="columnHeader">BOOK RECOMMENDATIONS</h6>
