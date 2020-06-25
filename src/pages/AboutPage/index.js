@@ -9,7 +9,7 @@ export default function AboutPage() {
       <p className="aboutText">
         The Book App is dedicated to book lovers, who want to have an overview
         of books they already read. As a user of The Book App you can create
-        your books collections, rate books and write reviews and share your
+        your books collections, rate books, write reviews and share your
         opinions with the world. Moreover, you can follow literary news and book
         recommendations.
       </p>
