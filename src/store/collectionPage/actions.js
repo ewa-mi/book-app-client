@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "../../config/constants";
+import { apiUrl, GOOGLE_BOOKS_API_KEY } from "../../config/constants";
 import {
   appLoading,
   appDoneLoading,
@@ -94,7 +94,7 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
   dispatch(appLoading());
   try {
     const response = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${process.env.REACT_APP_GOOGLE_KEY}`
+      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${GOOGLE_BOOKS_API_KEY}`
     );
 
     dispatch(setBookData(response.data));
