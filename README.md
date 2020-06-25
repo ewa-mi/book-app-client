@@ -1,11 +1,25 @@
-# BOOK APP
+# BOOK APP :book:
 
-is dedicated to book lovers, who want to have some overview of the books they already read, for those, who want to tidy their books collections, keep track on them, rate their books and create the reviews for their own awareness which book was good/bad and also to share their opinions with other book lovers.
+:exclamation: Click [HERE](https://book-app-portfolio.netlify.app/) to check out the deployed version :exclamation:
 
-- Wireframe: https://github.com/ewa-mi/book-app-client/blob/master/wireframe-book-app.pdf
-- Data types: https://github.com/ewa-mi/book-app-client/blob/master/bookapp-data%20types.jpg
-- Data model: https://github.com/ewa-mi/book-app-client/blob/master/bookapp-data%20model.jpg
-- Kanban task board & user stories https://github.com/users/ewa-mi/projects/1
+## INTRO
+
+👋 Hi! I am Ewa, and this is my portfolio project - web application called The Book App. Please notice, this is MVP, not a final version. I implemented the most important features, [the other ones](https://github.com/users/ewa-mi/projects/1) will be added in the future. 
+
+## THE BOOK APP
+
+...is dedicated to book lovers, who want to have an overview of books they already read. As a user of The Book App you can create your books collections, rate books and write reviews and share your opinions with the world. Moreover, you can follow literary news and book recommendations.
+
+- [Wireframe](https://github.com/ewa-mi/book-app-client/blob/master/attachments/wireframe-book-app.pdf)
+- [UML](https://github.com/ewa-mi/book-app-client/blob/master/attachments/Book%20App%20UML.png)
+- [Kanban task board & expanded version of the user stories](https://github.com/users/ewa-mi/projects/1)
+
+
+## DEMO APP
+
+![Homepage](https://github.com/ewa-mi/book-app-client/blob/master/attachments/homepage.png)
+![Collection Page](https://github.com/ewa-mi/book-app-client/blob/master/attachments/collection%20page.png)
+![Book Page](https://github.com/ewa-mi/book-app-client/blob/master/attachments/book%20page.png)
 
 ## USER STORIES
 
@@ -15,51 +29,57 @@ As a user, I want to...
 
 - See recent reviews on the Homepage to know which books are worth to read
 - Sign up, Log in & Log out to be able to create my books collections, rate books and write reviews
-- Create book collection/-s and add a book/-s to my collection (by providing ISBN) to an overview of the books I already read
-- Sort books within collection (by author, title, stars, etc.) to make my collections tidy and find a book fast and easy
+- Create books collection/-s and add book/-s automatically to my collection (by providing ISBN) to have an overview of books I already read
 - Create a review of my books (1 review per book) to express my opinion and share it with other users
-- See other users collections with all the extras (stars, reviews, etc.) to know other users opinions and interests\*
-  \*this feature is available when clicking in reviews details, on the homepage - you go to the book page and there, you can click on the user and go to their collections page
+- See other users collections with all the extras (stars, reviews, etc.) to know other users opinions and interests
 
 ## Additional
 
 As a user, I want to...
 
-1.
-
-- See book recommendations and news on the Homepage to learn about something interesting
+- See book recommendations and literary news on the Homepage to learn about something interesting
 - Star my books to remember if that book was good and to let other users know how I rate that book
 - Like other users reviews to express my positive opinion on their review
-- Filter reviews on the Homepage to see specific data
 
-2.
+## TECHNOLOGY USED
 
-- Remove my collection if I decide it’s not valuable anymore
-- Remove book from collection if I decide it’s not valuable anymore
-- Remove my review in case I change my opinion about some book
+Click to see samples in my project:
 
-## Secondary
+- [React](https://github.com/ewa-mi/book-app-client/blob/development/src/App.js)
+- [Redux](https://github.com/ewa-mi/book-app-client/tree/development/src/store)
+- [Express](https://github.com/ewa-mi/book-app-server/blob/master/index.js)
+  - [REST API](https://github.com/ewa-mi/book-app-server/blob/master/routers/bookscollection.js)
+- [Sequelize](https://github.com/ewa-mi/book-app-server/blob/master/models/book.js)
+- [CSS](https://github.com/ewa-mi/book-app-client/blob/development/src/pages/HomePage/index.css)
+- [React-Bootstrap](https://github.com/ewa-mi/book-app-client/blob/development/src/pages/SignUp/index.js)
 
-As a user, I want to...
+## GOALS FOR THIS PROJECT
 
-- Edit my review if I change my opinion about some book
-- Change my rating
-- Unlike someone's review
-- Make my collection private (invisible for other users) because I’m shy and don’t want other users to see my stuff
-- Remove book from my collection (with all the extras: stars, review, comments, likes in case I just change my mind
-- Comment other users reviews (and remove my comments) to express my opinion about their reviews
-- Block commenting option of my reviews to prevent other users to criticise me
+- practice full-stack development
+- practice working with external api
+- apply what I learned so far
+- showcase development approach of using wireframe, uml and user stories
+- practice disciplined [git usage](https://github.com/ewa-mi/book-app-client/branches)
 
-## Future features
+## SETUP 
 
-(the app can be improved in the future)
+- clone the app
+- cd into your project
+- install dependencies with npm install
+- start development server with npm start
 
-As a user, I want to…
+HINT: In scr/config/constants you can find this variable: GOOGLE_BOOKS_API_KEY = process.env.REACT_APP_GOOGLE_KEY. Please replace its value with your own Google Books API key. Click [here](https://developers.google.com/books/docs/v1/getting_started) for the details.
 
-- Look for a specific book and see collections, which contain that book
-- Search for specific collections of specific users
-- Post announcement that I have some book to give away
-- Describe that book and add my location
-- See other users give aways, filter them by searching and see location on a map
-- PM user who give aways book I’m interested in
-- Chat with that user to arrange book pick up
+## SERVER-REPO
+
+The server side of this project is an Express server connected to a Sequelize database. You will find it [here](https://github.com/ewa-mi/book-app-server)
+
+  
+
+
+
+
+
+
+
+
