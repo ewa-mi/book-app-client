@@ -94,7 +94,7 @@ export const fetchBookData = (isbn) => async (dispatch, getState) => {
   dispatch(appLoading());
   try {
     const response = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyAVXF89BDZJXy4wq2h4aG3wbehHCh-4Aa0`
+      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${process.env.REACT_APP_GOOGLE_KEY}`
     );
 
     dispatch(setBookData(response.data));
