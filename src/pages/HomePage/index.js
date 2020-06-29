@@ -36,9 +36,11 @@ export default function HomePage() {
               const truncateReviewText =
                 item.review.content.substr(0, 200) + "...";
 
+              const truncateBookTitle = item.book.title.substr(0, 40);
+
               return (
                 <div className="oneBoard" key={item.id}>
-                  <h3 className="bookTitle">{`${item.book.author} - ${item.book.title}`}</h3>
+                  <h3 className="bookTitle">{`${item.book.author} - ${truncateBookTitle}`}</h3>
 
                   <div className="reviewBodyWrapper">
                     <img
