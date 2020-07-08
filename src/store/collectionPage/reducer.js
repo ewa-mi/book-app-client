@@ -4,28 +4,20 @@ const initialState = {
 };
 
 export default function collectionReducer(state = initialState, action) {
-  let newState = { ...state };
-
   switch (action.type) {
     case "SET_COLLECTION": {
-      newState.collection = action.payload;
-      break;
+      return { ...state, collection: action.payload };
     }
 
     case "SET_BOOK_DATA": {
-      newState.bookData = action.payload;
-      break;
+      return { ...state, bookData: action.payload };
     }
 
     case "SET_ONLY_COLLECTION": {
-      newState.onlyCollection = action.payload;
-      break;
+      return { ...state, onlyCollection: action.payload };
     }
 
-    default: {
-      // do nothing
-    }
+    default:
+      return state;
   }
-
-  return newState;
 }

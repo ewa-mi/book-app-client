@@ -1,18 +1,12 @@
 const initialState = {};
 
 export default function bookPageReducer(state = initialState, action) {
-  let newState = { ...state };
-
   switch (action.type) {
     case "SET_BOOK_DETAILS": {
-      newState = action.payload;
-      break;
+      return action.payload;
     }
 
-    default: {
-      // do nothing
-    }
+    default:
+      return state;
   }
-
-  return newState;
 }

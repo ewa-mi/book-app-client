@@ -3,18 +3,12 @@ const initialState = {
 };
 
 export default function homepageReducer(state = initialState, action) {
-  let newState = { ...state };
-
   switch (action.type) {
     case "SET_BOOKS_COLLECTIONS": {
-      newState.booksCollections = action.payload;
-      break;
+      return { ...state, booksCollections: action.payload };
     }
 
-    default: {
-      // do nothing
-    }
+    default:
+      return state;
   }
-
-  return newState;
 }
