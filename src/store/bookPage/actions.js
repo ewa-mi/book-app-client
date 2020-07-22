@@ -7,6 +7,8 @@ import {
   showMessageWithTimeout,
 } from "../appState/actions";
 
+export const SET_BOOK_DETAILS = "SET_BOOK_DETAILS";
+
 export function setBookDetails(bookDetails) {
   return {
     type: "SET_BOOK_DETAILS",
