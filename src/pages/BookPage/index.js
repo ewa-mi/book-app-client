@@ -32,10 +32,10 @@ export default function BookPage() {
     event.preventDefault();
 
     const newReviewData = {
-      reviewTitle: reviewTitle,
-      reviewContent: reviewContent,
-      collectionId: collectionId,
-      bookId: bookId,
+      reviewTitle,
+      reviewContent,
+      collectionId,
+      bookId,
     };
 
     dispatch(addNewReview(newReviewData));
