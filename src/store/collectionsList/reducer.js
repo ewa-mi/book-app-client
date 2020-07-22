@@ -1,18 +1,12 @@
 const initialState = [];
 
 export default function collectionListReducer(state = initialState, action) {
-  let newState = [...state];
-
   switch (action.type) {
     case "SET_USER_COLLECTIONS": {
-      newState = action.payload;
-      break;
+      return action.payload;
     }
 
-    default: {
-      // do nothing
-    }
+    default:
+      return state;
   }
-
-  return newState;
 }
