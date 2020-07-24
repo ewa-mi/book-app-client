@@ -34,6 +34,7 @@ export const fetchBookDetails = (collectionId, bookId) => async (
     );
 
     dispatch(setBookDetails(response.data));
+    console.log("here", response.data);
     dispatch(appDoneLoading());
   } catch (error) {
     console.log(error);

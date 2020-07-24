@@ -7,6 +7,8 @@ import {
   showMessageWithTimeout,
 } from "../appState/actions";
 
+export const SET_COLLECTION = "SET_COLLECTION";
+
 export function setCollection(collection) {
   return {
     type: "SET_COLLECTION",

@@ -1,4 +1,8 @@
-import { SET_BOOK_DETAILS, setBookDetails } from "../actions";
+import { SET_BOOK_DETAILS, setBookDetails, fetchBookDetails } from "../actions";
+// import { appLoading, appDoneLoading } from "../../appState/actions";
+// import axios from "axios";
+
+// jest.mock("axios");
 
 describe("#fetchBookDetails", () => {
   describe("if given an object of bookDetails", () => {
