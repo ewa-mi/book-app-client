@@ -45,18 +45,18 @@ As a user, I want to...
 
 Click to see samples in my project:
 
-- [React](https://github.com/ewa-mi/book-app-client/blob/development/src/App.js)
-- [Redux](https://github.com/ewa-mi/book-app-client/tree/development/src/store)
+- [React](https://github.com/ewa-mi/book-app-client/blob/master/src/App.js)
+- [Redux](https://github.com/ewa-mi/book-app-client/tree/master/src/store)
 - [Express](https://github.com/ewa-mi/book-app-server/blob/master/index.js)
   - [REST API](https://github.com/ewa-mi/book-app-server/blob/master/routers/bookscollection.js)
 - [Sequelize](https://github.com/ewa-mi/book-app-server/blob/master/models/book.js)
-- [CSS](https://github.com/ewa-mi/book-app-client/blob/development/src/pages/HomePage/index.css)
-- [React-Bootstrap](https://github.com/ewa-mi/book-app-client/blob/development/src/pages/SignUp/index.js)
+- [CSS](https://github.com/ewa-mi/book-app-client/blob/master/src/pages/HomePage/index.css)
+- [React-Bootstrap](https://github.com/ewa-mi/book-app-client/blob/master/src/pages/SignUp/index.js)
 
 ## GOALS FOR THIS PROJECT
 
 - practice full-stack development
-- practice working with external api
+- practice working with REST and external api
 - apply what I learned so far
 - showcase development approach of using wireframe, uml and user stories
 - practice disciplined [git usage](https://github.com/ewa-mi/book-app-client/branches)
