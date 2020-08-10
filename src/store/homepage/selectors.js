@@ -1,3 +1,2 @@
-export const selectBooksCollections = (state) => {
-  return state.homepage.booksCollections;
-};
+export const selectBooksCollections = (state) =>
+  state.homepage.booksCollections;

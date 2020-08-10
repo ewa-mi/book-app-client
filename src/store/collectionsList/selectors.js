@@ -1,3 +1,1 @@
-export const selectUserCollections = (state) => {
-  return state.collectionsList;
-};
+export const selectUserCollections = (state) => state.collectionsList;

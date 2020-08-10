@@ -1,11 +1,5 @@
-export const selectCollection = (state) => {
-  return state.collection.collection;
-};
+export const selectCollection = (state) => state.collection.collection;
 
-export const selectBookData = (state) => {
-  return state.collection.bookData;
-};
+export const selectBookData = (state) => state.collection.bookData;
 
-export const selectOnlyCollection = (state) => {
-  return state.collection.onlyCollection;
-};
+export const selectOnlyCollection = (state) => state.collection.onlyCollection;

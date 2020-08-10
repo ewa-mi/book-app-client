@@ -1,3 +1,1 @@
-export const selectBookDetails = (state) => {
-  return state.bookPage;
-};
+export const selectBookDetails = (state) => state.bookPage;
