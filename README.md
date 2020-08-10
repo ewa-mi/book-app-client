@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BOOK APP :book:
 
-## Available Scripts
+:exclamation: Click [HERE](https://book-app-portfolio.netlify.app/) to check out the deployed version :exclamation:
 
-In the project directory, you can run:
+## INTRO
 
-### `npm start`
+👋 Hi! I am Ewa, and this is my portfolio project - web application called The Book App. Please notice, this is MVP, not a final version. I implemented the most important features, [the other ones](https://github.com/users/ewa-mi/projects/1) will be added in the future. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## THE BOOK APP
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+...is dedicated to book lovers, who want to have an overview of books they already read. As a user of The Book App you can create your books collections, rate books and write reviews and share your opinions with the world. Moreover, you can follow literary news and book recommendations.
 
-### `npm test`
+- [Wireframe](https://github.com/ewa-mi/book-app-client/blob/master/attachments/wireframe-book-app.pdf)
+- [UML](https://github.com/ewa-mi/book-app-client/blob/master/attachments/Book%20App%20UML.png)
+- [Kanban task board & expanded version of the user stories](https://github.com/users/ewa-mi/projects/1)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## DEMO APP
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Homepage](https://github.com/ewa-mi/book-app-client/blob/master/attachments/homepage.png)
+![Collection Page](https://github.com/ewa-mi/book-app-client/blob/master/attachments/collection%20page.png)
+![Book Page](https://github.com/ewa-mi/book-app-client/blob/master/attachments/book%20page.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## USER STORIES
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Primary
 
-### `npm run eject`
+As a user, I want to...
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- See recent reviews on the Homepage to know which books are worth to read
+- Sign up, Log in & Log out to be able to create my books collections, rate books and write reviews
+- Create books collection/-s and add book/-s automatically to my collection (by providing ISBN) to have an overview of books I already read
+- Create a review of my books (1 review per book) to express my opinion and share it with other users
+- See other users collections with all the extras (stars, reviews, etc.) to know other users opinions and interests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Additional
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As a user, I want to...
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- See book recommendations and literary news on the Homepage to learn about something interesting
+- Star my books to remember if that book was good and to let other users know how I rate that book
+- Like other users reviews to express my positive opinion on their review
 
-## Learn More
+## TECHNOLOGY USED
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Click to see samples in my project:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [React](https://github.com/ewa-mi/book-app-client/blob/master/src/App.js)
+- [Redux](https://github.com/ewa-mi/book-app-client/tree/master/src/store)
+- [Express](https://github.com/ewa-mi/book-app-server/blob/master/index.js)
+  - [REST API](https://github.com/ewa-mi/book-app-server/blob/master/routers/bookscollection.js)
+- [Sequelize](https://github.com/ewa-mi/book-app-server/blob/master/models/book.js)
+- [CSS](https://github.com/ewa-mi/book-app-client/blob/master/src/pages/HomePage/index.css)
+- [React-Bootstrap](https://github.com/ewa-mi/book-app-client/blob/master/src/pages/SignUp/index.js)
 
-### Code Splitting
+## GOALS FOR THIS PROJECT
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- practice full-stack development
+- practice working with REST and external api
+- apply what I learned so far
+- showcase development approach of using wireframe, uml and user stories
+- practice disciplined [git usage](https://github.com/ewa-mi/book-app-client/branches)
 
-### Analyzing the Bundle Size
+## SETUP 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- clone the app
+- cd into your project
+- install dependencies with npm install
+- start development server with npm start
 
-### Making a Progressive Web App
+HINT: In scr/config/constants you can find this variable: GOOGLE_BOOKS_API_KEY = process.env.REACT_APP_GOOGLE_KEY. Please replace its value with your own Google Books API key. Click [here](https://developers.google.com/books/docs/v1/getting_started) for the details.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## SERVER-REPO
 
-### Advanced Configuration
+The server side of this project is an Express server connected to a Sequelize database. You will find it [here](https://github.com/ewa-mi/book-app-server)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+

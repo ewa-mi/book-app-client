@@ -1,0 +1,85 @@
+.header {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 30px;
+  padding: 18px;
+}
+
+.oneBoard {
+  width: 100%;
+  background: white;
+  border: 1px solid rgb(235, 233, 233);
+  margin-bottom: 10px;
+}
+
+.bookTitle {
+  margin: 0;
+  padding: 5px;
+  border-bottom: 1px solid rgb(235, 233, 233);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.reviewBodyWrapper {
+  display: grid;
+  grid-template-columns: 128px calc(100% - 128px);
+  padding: 5px;
+}
+
+.reviewImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.reviewRightSide {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, max-content) 1fr;
+}
+
+.reviewTitleWrapper,
+.reviewFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewDate {
+  font-size: 12px;
+  padding: 2px 0 6px;
+}
+
+.reviewTitle,
+.reviewAuthor,
+.reviewLikes,
+.reviewDate,
+.reviewText {
+  margin: 0;
+}
+
+.reviewTitle {
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.reviewFooter {
+  align-self: end;
+}
+
+.columnHeader {
+  margin-bottom: 25px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
