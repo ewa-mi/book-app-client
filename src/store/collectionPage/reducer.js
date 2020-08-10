@@ -1,6 +1,7 @@
 const initialState = {
   collection: [],
   onlyCollection: [],
+  bookData: [],
 };
 
 export default function collectionReducer(state = initialState, action) {

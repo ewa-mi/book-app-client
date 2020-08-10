@@ -56,7 +56,7 @@ export default function CollectionPage() {
   }, [dispatch, setOnlyCollection]);
 
   useEffect(() => {
-    if (bookData && bookData.totalItems) {
+    if (bookData && bookData?.totalItems) {
       const book = bookData.items[0].volumeInfo;
 
       let categories = "";
