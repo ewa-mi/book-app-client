@@ -2,6 +2,8 @@ import axios from "axios";
 import { apiUrl } from "../../config/constants";
 import { appLoading, appDoneLoading } from "../appState/actions";
 
+export const SET_BOOKS_COLLECTIONS = "SET_BOOKS_COLLECTIONS";
+
 export function setBooksCollections(booksCollections) {
   return {
     type: "SET_BOOKS_COLLECTIONS",

@@ -7,6 +7,8 @@ import {
   showMessageWithTimeout,
 } from "../appState/actions";
 
+export const SET_BOOK_DETAILS = "SET_BOOK_DETAILS";
+
 export function setBookDetails(bookDetails) {
   return {
     type: "SET_BOOK_DETAILS",
@@ -32,6 +34,7 @@ export const fetchBookDetails = (collectionId, bookId) => async (
     );
 
     dispatch(setBookDetails(response.data));
+    console.log("here", response.data);
     dispatch(appDoneLoading());
   } catch (error) {
     console.log(error);
