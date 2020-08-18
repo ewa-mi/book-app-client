@@ -7,6 +7,8 @@ import {
   showMessageWithTimeout,
 } from "../appState/actions";
 
+export const SET_USER_COLLECTIONS = "SET_USER_COLLECTIONS";
+
 export function setUserCollections(userCollections) {
   return {
     type: "SET_USER_COLLECTIONS",
