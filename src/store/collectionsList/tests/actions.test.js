@@ -32,3 +32,21 @@ describe("#setUserCollections", () => {
     });
   });
 });
+
+describe("if given a null argument", () => {
+  test("action.payload should be null", () => {
+    // test data simulating user collections
+    const userCollections = null;
+    // build action we expect to get back
+
+    const expected = {
+      type: SET_USER_COLLECTIONS,
+      payload: userCollections,
+    };
+    // call function
+
+    const action = setUserCollections(userCollections);
+    // do assertion on function return
+    expect(action.payload).toEqual(expected.payload);
+  });
+});
