@@ -1,6 +1,5 @@
 # BOOK APP :book:
 
-:exclamation: Click [HERE](https://book-app-portfolio.netlify.app/) to check out the deployed version :exclamation:
 
 ## INTRO
 
@@ -74,7 +73,9 @@ HINT: In scr/config/constants you can find this variable: GOOGLE_BOOKS_API_KEY =
 
 The server side of this project is an Express server connected to a Sequelize database. You will find it [here](https://github.com/ewa-mi/book-app-server)
 
-  
+---
+  Click [HERE](https://book-app-portfolio.netlify.app/) to check out the deployed version 
+
 
 
 
